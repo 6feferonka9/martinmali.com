@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Martin Mali - Personal portfolio</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <base href="http://martinmali.com/">    
+    <meta name="description" content="Personal website of Full Stack web developer from Slovakia, Bratislava." />
+    
+    <meta name="robots" content="index"> <!-- NOODP -->
+    
+    <meta name="google" content="notranslate" />
+
+    <link rel="icon" type="image/png" sizes="96x96" href="icon.png">
+    
+    <link rel="alternate" hreflang="x-default" href="http://martinmali.com/" />
+    <link rel="canonical" href="http://martinmali.com/" />
+    <link rel="index" href="http://martinmali.com/">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#394e57">
+    <meta name="apple-mobile-web-app-title" content="Martin Mali - Personal portfolio">
+    
+    <meta name="theme-color" content="#394e57">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- <meta property="fb:app_id" content="123456789">
+    <meta property="og:url" content="http://example.com/page.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Content Title">
+    <meta property="og:image" content="http://example.com/image.jpg">
+    <meta property="og:description" content="Description Here">
+    <meta property="og:site_name" content="Site Name">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content=""> -->
+    
+    <!-- <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@site_account">
+    <meta name="twitter:creator" content="@individual_account">
+    <meta name="twitter:url" content="http://example.com/page.html">
+    <meta name="twitter:title" content="Content Title">
+    <meta name="twitter:description" content="Content description less than 200 characters">
+    <meta name="twitter:image" content="http://example.com/image.jpg"> -->
+    
+    <!-- <link href="https://plus.google.com/+YourPage" rel="publisher">
+    <meta itemprop="name" content="Content Title">
+    <meta itemprop="description" content="Content description less than 200 characters">
+    <meta itemprop="image" content="http://example.com/image.jpg">     -->
+    
+    <link rel="stylesheet" href="resources/style.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+             
+
+</head>
+<body>
+    <div class="homepage main" id="app">
+        <!-- 
+            HEADER
+         -->        
+        <header>
+            <div class="container">
+                <nav>
+                    <div>
+                        <a href="http://martinmali.com">Martin Mali</a>
+                    </div>
+                    <div>
+                        <ul class="list--inline">
+                            <li><a href="javascript:;" @click="scrollTo('about')">About</a></li>
+                            <li><a href="javascript:;" @click="scrollTo('work')">Work</a></li>
+                            <li><a href="javascript:;" @click="scrollTo('experience')">Experience</a></li>
+                            <li><a href="javascript:;" @click="scrollTo('contact')">Contact</a></li>
+                        </ul>
+                    </div>
+                    <button class="hamburger hamburger--slider" type="button" @click="hamburgerMenu()" :class="{'is-active': mobileNav.isActive}">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>                      
+                </nav>
+                <div class="center" data-aos="fade-down" data-aos-duration="1500">
+                    <img src="resources/images/icons/mm.svg" alt="MM LOGO" class="icon">
+                    <span>Full Stack web developer</span>
+                </div>
+            </div>
+        </header>
+        <!-- 
+            ABOUT
+        -->
+        <div class="about content" id="about">
+            <div class="container">
+                <img src="resources/images/icons/user.svg" alt="user icon" class="icon--medium">
+                <h1>about</h1>            
+                <p>
+                    My name is Martin and I am a web developer currently working in Bratislava, Slovakia. I love to participate on different and interesting projects from websites to mobile apps. When I am just not pounding my keyboard, you will find me in the gym or with the guitar.
+                </p>
+                <p>
+                    Also in love with the science behind electronics, mathematics and physics.
+                </p>
+                <div class="social">
+                    <ul class="list--inline">
+                        <li>
+                            <object data="resources/images/icons/github.svg" type="image/svg+xml"></object>
+                        </li>
+                        <li>
+                            <object data="resources/images/icons/linkedin.svg" type="image/svg+xml"></object>
+                        </li>
+                        <li>
+                            <object data="resources/images/icons/twitter.svg" type="image/svg+xml"></object>
+                        </li>
+                        <li>
+                            <object data="resources/images/icons/codepen.svg" type="image/svg+xml"></object>
+                        </li>
+                        <li>
+                            <object data="resources/images/icons/youtube.svg" type="image/svg+xml"></object>
+                        </li>
+                    </ul>
+                </div>                
+            </div>
+        </div>
+        <!-- 
+            WORK
+        -->
+        <div class="work content" id="work">
+            <div class="container">
+                <img src="resources/images/icons/pen.svg" alt="ICON" class="icon--medium">
+                <h1>work</h1>
+                <p>
+                    Here are SOME of the websites and apps I have been working on since I discovered C++.<br>
+                    Websites listed here are sites I have been working on alone as a Freelancer for clients (I built complete website) or I was a important part of a team.
+                </p>
+                
+                <div class="portfolio">
+                    <div class="single-work" v-for="(item, index) in portfolio" data-aos="zoom-in" data-aos-once="true" @click="displayWorkSidebar(index)">
+                        <div class="overlay">
+                            <span>{{item.workType}}</span>
+                            <a :href="item.link">
+                                <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAzMDAgMzAwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMDAgMzAwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCI+CjxnPgoJPGc+CgkJPGc+CgkJCTxwYXRoIGQ9Ik0xNDkuOTk2LDBDNjcuMTU3LDAsMC4wMDEsNjcuMTYxLDAuMDAxLDE0OS45OTdTNjcuMTU3LDMwMCwxNDkuOTk2LDMwMHMxNTAuMDAzLTY3LjE2MywxNTAuMDAzLTE1MC4wMDMgICAgIFMyMzIuODM1LDAsMTQ5Ljk5NiwweiBNMjI1LjM2MywxMjMuMzAybC0zNi42ODYsMzYuNjg2Yy0zLjk3OSwzLjk3OS05LjI2OSw2LjE3LTE0Ljg5NSw2LjE3Yy01LjYyNSwwLTEwLjkxNi0yLjE5Mi0xNC44OTUtNi4xNjggICAgIGwtMS40MzctMS40MzdsLTMuOTA2LDMuOTA2bDEuNDM0LDEuNDM0YzguMjE0LDguMjE0LDguMjE0LDIxLjU3OSwwLDI5Ljc5M2wtMzYuNjgxLDM2LjY4NmMtMy45NzksMy45NzktOS4yNjksNi4xNy0xNC44OTgsNi4xNyAgICAgYy01LjYyOCwwLTEwLjkxOS0yLjE5Mi0xNC45LTYuMTczTDc0LjYzNCwyMTYuNWMtOC4yMTQtOC4yMDktOC4yMTQtMjEuNTczLTAuMDAzLTI5Ljc5bDM2LjY4OS0zNi42ODQgICAgIGMzLjk3OS0zLjk3OSw5LjI2OS02LjE3LDE0Ljg5OC02LjE3czEwLjkxNiwyLjE5MiwxNC44OTgsNi4xN2wxLjQzMiwxLjQzMmwzLjkwNi0zLjkwNmwtMS40MzItMS40MzIgICAgIGMtOC4yMTQtOC4yMTEtOC4yMTQtMjEuNTc2LTAuMDA1LTI5Ljc5bDM2LjY4OS0zNi42ODZjMy45ODEtMy45ODEsOS4yNzItNi4xNzMsMTQuODk4LTYuMTczczEwLjkxNiwyLjE5MiwxNC44OTgsNi4xNyAgICAgbDEzLjg2OCwxMy44NzNDMjMzLjU3NywxMDEuNzIzLDIzMy41NzcsMTE1LjA5LDIyNS4zNjMsMTIzLjMwMnoiIGZpbGw9IiNGRkZGRkYiLz4KCQkJPHBhdGggZD0iTTE0Mi41MzksMTczLjQ1OWwtNy4wOTMsNy4wOTNsLTExLjAwMi0xMC45OTlsNy4wOTMtNy4wOTNsLTEuNDMyLTEuNDMyYy0xLjA0LTEuMDM3LTIuNDIyLTEuNjExLTMuODktMS42MTEgICAgIGMtMS40NzEsMC0yLjg1MywwLjU3My0zLjg5MywxLjYxMWwtMzYuNjg2LDM2LjY4MWMtMi4xNDUsMi4xNDctMi4xNDUsNS42MzgsMCw3Ljc4M2wxMy44NywxMy44NzMgICAgIGMyLjA4MywyLjA4Myw1LjcwOCwyLjA4LDcuNzg2LDAuMDAzbDM2LjY4MS0zNi42ODZjMi4xNDgtMi4xNDcsMi4xNDgtNS42NDEsMC03Ljc4OUwxNDIuNTM5LDE3My40NTl6IiBmaWxsPSIjRkZGRkZGIi8+CgkJCTxwYXRoIGQ9Ik0yMDAuNDkzLDkwLjY0M2MtMS4wNC0xLjA0LTIuNDI1LTEuNjEzLTMuODk2LTEuNjEzYy0xLjQ3MSwwLTIuODU2LDAuNTczLTMuODk2LDEuNjE2bC0zNi42ODYsMzYuNjg0ICAgICBjLTIuMTQyLDIuMTQ3LTIuMTQyLDUuNjM4LDAuMDAzLDcuNzg2bDEuNDM0LDEuNDMybDEwLjg4LTEwLjg4M2wxMS4wMDIsMTEuMDAybC0xMC44OCwxMC44ODNsMS40MzQsMS40MzQgICAgIGMyLjA4MywyLjA3Nyw1LjcwMywyLjA4LDcuNzg2LTAuMDAzbDM2LjY4NC0zNi42ODFjMi4xNDUtMi4xNDcsMi4xNDUtNS42MzgsMC03Ljc4NkwyMDAuNDkzLDkwLjY0M3oiIGZpbGw9IiNGRkZGRkYiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+                            </a>
+                            <span v-html="item.text"></span>
+                            <span>{{item.year}}</span>
+                        </div>
+                        <img :data-src="item.imgSource" class="bg lazyload" :alt="item.link">    
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <!-- 
+            EXPERIENCES
+        -->
+        <div class="content" id="experience">
+            <div class="container">
+                <h1>I'M EXPERIENCED WITH</h1>
+            </div>
+            <div class="shadow-wrapper">
+                <div class="container">
+                    <div class="list">
+                        <ul v-for="item in experience">
+                            <li v-for="item in item" >{{item}}</li>
+                        </ul>
+                    </div>
+                    <span class="scroll-icon-horizontal-black"></span>
+                </div>
+            </div>
+        </div>              
+        <!-- 
+            CONTACT
+        -->
+        <div class="contact content" id="contact">
+            <div class="container">
+                <div class="contactLeftSide">
+                    <h1>Get in Touch with Me</h1>
+                    <p>Feel free to send me a message if you want to hire me, if you have and idea for an interesing project or if you just want to have a beer with me.</p>
+                </div>
+                <form action="https://formspree.io/martinheti@gmail.com" method="POST">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Your name" required>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Your email address" required>
+                    <label for="subject">Subject</label>
+                    <input type="text" name="_subject" id="subject" placeholder="Subject" required>
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Your message..." required></textarea>
+                    <input type="text" name="_gotcha" style="display:none" />
+                    <button type="submit" class="button">SUBMIT</button>
+                </form>
+            </div>
+        </div>             
+        <!-- 
+            FOOTER
+         -->
+         <footer>
+             <div class="container">
+                <ul class="list--inline">
+                    <li><img src="resources/images/icons/mm.svg" alt="MM LOGO" class="icon"></li>
+                    <li>
+                        Most mockups by talented <a href="https://www.anthonyboyd.graphics/">Anthony Boyd</a><br>
+                        Martin Mali - 2018
+                    </li>
+                </ul>
+             </div>
+         </footer>
+         <!-- 
+             MOBILE-NAV
+          -->
+         <div class="mobile-nav" :class="{'is-active': mobileNav.isActive}">
+            <ul>
+                <li><a href="javascript:;" @click="scrollTo('about')">About</a></li>
+                <li><a href="javascript:;" @click="scrollTo('work')">Work</a></li>
+                <li><a href="javascript:;" @click="scrollTo('experience')">Experience</a></li>
+                <li><a href="javascript:;" @click="scrollTo('contact')">Contact</a></li>
+            </ul>
+        </div>          
+        <!-- 
+            DISPLAY WORK INORMATION ON MOBILE IN SIDEBAR
+        -->
+         <div class="mobile-work-info-sidebar" :class="{'is-active': mobileWork.isActive}">
+            <span class="scroll-icon-vertical-white"></span>
+            <div class="info">
+                <span>{{mobileWork.currentItemData.workType}}</span>
+                <a :href="mobileWork.currentItemData.link">
+                    <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAzMDAgMzAwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMDAgMzAwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCI+CjxnPgoJPGc+CgkJPGc+CgkJCTxwYXRoIGQ9Ik0xNDkuOTk2LDBDNjcuMTU3LDAsMC4wMDEsNjcuMTYxLDAuMDAxLDE0OS45OTdTNjcuMTU3LDMwMCwxNDkuOTk2LDMwMHMxNTAuMDAzLTY3LjE2MywxNTAuMDAzLTE1MC4wMDMgICAgIFMyMzIuODM1LDAsMTQ5Ljk5NiwweiBNMjI1LjM2MywxMjMuMzAybC0zNi42ODYsMzYuNjg2Yy0zLjk3OSwzLjk3OS05LjI2OSw2LjE3LTE0Ljg5NSw2LjE3Yy01LjYyNSwwLTEwLjkxNi0yLjE5Mi0xNC44OTUtNi4xNjggICAgIGwtMS40MzctMS40MzdsLTMuOTA2LDMuOTA2bDEuNDM0LDEuNDM0YzguMjE0LDguMjE0LDguMjE0LDIxLjU3OSwwLDI5Ljc5M2wtMzYuNjgxLDM2LjY4NmMtMy45NzksMy45NzktOS4yNjksNi4xNy0xNC44OTgsNi4xNyAgICAgYy01LjYyOCwwLTEwLjkxOS0yLjE5Mi0xNC45LTYuMTczTDc0LjYzNCwyMTYuNWMtOC4yMTQtOC4yMDktOC4yMTQtMjEuNTczLTAuMDAzLTI5Ljc5bDM2LjY4OS0zNi42ODQgICAgIGMzLjk3OS0zLjk3OSw5LjI2OS02LjE3LDE0Ljg5OC02LjE3czEwLjkxNiwyLjE5MiwxNC44OTgsNi4xN2wxLjQzMiwxLjQzMmwzLjkwNi0zLjkwNmwtMS40MzItMS40MzIgICAgIGMtOC4yMTQtOC4yMTEtOC4yMTQtMjEuNTc2LTAuMDA1LTI5Ljc5bDM2LjY4OS0zNi42ODZjMy45ODEtMy45ODEsOS4yNzItNi4xNzMsMTQuODk4LTYuMTczczEwLjkxNiwyLjE5MiwxNC44OTgsNi4xNyAgICAgbDEzLjg2OCwxMy44NzNDMjMzLjU3NywxMDEuNzIzLDIzMy41NzcsMTE1LjA5LDIyNS4zNjMsMTIzLjMwMnoiIGZpbGw9IiNGRkZGRkYiLz4KCQkJPHBhdGggZD0iTTE0Mi41MzksMTczLjQ1OWwtNy4wOTMsNy4wOTNsLTExLjAwMi0xMC45OTlsNy4wOTMtNy4wOTNsLTEuNDMyLTEuNDMyYy0xLjA0LTEuMDM3LTIuNDIyLTEuNjExLTMuODktMS42MTEgICAgIGMtMS40NzEsMC0yLjg1MywwLjU3My0zLjg5MywxLjYxMWwtMzYuNjg2LDM2LjY4MWMtMi4xNDUsMi4xNDctMi4xNDUsNS42MzgsMCw3Ljc4M2wxMy44NywxMy44NzMgICAgIGMyLjA4MywyLjA4Myw1LjcwOCwyLjA4LDcuNzg2LDAuMDAzbDM2LjY4MS0zNi42ODZjMi4xNDgtMi4xNDcsMi4xNDgtNS42NDEsMC03Ljc4OUwxNDIuNTM5LDE3My40NTl6IiBmaWxsPSIjRkZGRkZGIi8+CgkJCTxwYXRoIGQ9Ik0yMDAuNDkzLDkwLjY0M2MtMS4wNC0xLjA0LTIuNDI1LTEuNjEzLTMuODk2LTEuNjEzYy0xLjQ3MSwwLTIuODU2LDAuNTczLTMuODk2LDEuNjE2bC0zNi42ODYsMzYuNjg0ICAgICBjLTIuMTQyLDIuMTQ3LTIuMTQyLDUuNjM4LDAuMDAzLDcuNzg2bDEuNDM0LDEuNDMybDEwLjg4LTEwLjg4M2wxMS4wMDIsMTEuMDAybC0xMC44OCwxMC44ODNsMS40MzQsMS40MzQgICAgIGMyLjA4MywyLjA3Nyw1LjcwMywyLjA4LDcuNzg2LTAuMDAzbDM2LjY4NC0zNi42ODFjMi4xNDUtMi4xNDcsMi4xNDUtNS42MzgsMC03Ljc4NkwyMDAuNDkzLDkwLjY0M3oiIGZpbGw9IiNGRkZGRkYiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+                </a>
+                <span v-html="mobileWork.currentItemData.text"></span>
+                <span>{{mobileWork.currentItemData.year}}</span>
+                <span class="close" @click="hideWorkSidebar">X</span>
+            </div>            
+        </div>               
+    </div>
+
+    <link href="https://fonts.googleapis.com/css?family=Galada|Lato:300,400,700" rel="stylesheet">  
+    <script src="resources/scripts/vendor/lazy.js" async=""></script>
+    <script src="resources/scripts/vendor/aos.js"></script>
+    <script src="resources/scripts/main.js"></script>
+    <script defer>
+        AOS.init();
+    </script>    
+</body>
+</html>
