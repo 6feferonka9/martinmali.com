@@ -24,29 +24,14 @@
     
     <meta name="theme-color" content="#394e57">
     <meta name="mobile-web-app-capable" content="yes">
-    
-    <!-- <meta property="fb:app_id" content="123456789">
-    <meta property="og:url" content="http://example.com/page.html">
+
+    <meta property="og:url" content="https://martinmali.com">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Content Title">
-    <meta property="og:image" content="http://example.com/image.jpg">
-    <meta property="og:description" content="Description Here">
-    <meta property="og:site_name" content="Site Name">
+    <meta property="og:title" content="Martin Mali - Personal portfolio">
+    <meta property="og:image" content="https://martinmali.com/icon.png">
+    <meta property="og:description" content="Personal website of Full Stack web developer from Slovakia, Bratislava.">
     <meta property="og:locale" content="en_US">
-    <meta property="article:author" content=""> -->
-    
-    <!-- <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@site_account">
-    <meta name="twitter:creator" content="@individual_account">
-    <meta name="twitter:url" content="http://example.com/page.html">
-    <meta name="twitter:title" content="Content Title">
-    <meta name="twitter:description" content="Content description less than 200 characters">
-    <meta name="twitter:image" content="http://example.com/image.jpg"> -->
-    
-    <!-- <link href="https://plus.google.com/+YourPage" rel="publisher">
-    <meta itemprop="name" content="Content Title">
-    <meta itemprop="description" content="Content description less than 200 characters">
-    <meta itemprop="image" content="http://example.com/image.jpg">     -->
+    <meta property="article:author" content="Martin Mali">
     
     <link rel="stylesheet" href="resources/style.css">
 
@@ -62,7 +47,7 @@
              
 </head>
 <body>
-    <div class="homepage main" id="app">
+    <div class="homepage main" id="app" :class="{'mobile-active': mobileNav.isActive, 'work-active': mobileWork.isActive}">
         <!-- 
             HEADER
          -->        
@@ -70,7 +55,7 @@
             <div class="container">
                 <nav>
                     <div>
-                        <a href="http://martinmali.com">Martin Mali</a>
+                        <a href="https://martinmali.com">Martin Mali</a>
                     </div>
                     <div>
                         <ul class="list--inline">
@@ -211,7 +196,7 @@
          <!-- 
              MOBILE-NAV
           -->
-         <div class="mobile-nav" :class="{'is-active': mobileNav.isActive}">
+         <div class="mobile-nav">
             <ul>
                 <li><a href="javascript:;" @click="scrollTo('about')">About</a></li>
                 <li><a href="javascript:;" @click="scrollTo('work')">Work</a></li>
@@ -233,7 +218,8 @@
                 <span>{{mobileWork.currentItemData.year}}</span>
                 <span class="close" @click="hideWorkSidebar">X</span>
             </div>            
-        </div>               
+        </div>   
+        <div class="overlay-no-scroll"></div>            
     </div>
 
     <link href="https://fonts.googleapis.com/css?family=Galada|Lato:300,400,700" rel="stylesheet">  
